@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 People = require('./models/people');
 
 //Connect to DB
-mongoose.connect('mongodb://localhost/peoplestuff');
+mongoose.connect('mongodb://localhost/people_info');
 var db = mongoose.connection;
 
 app.get('/',function(req, res){
