@@ -14,4 +14,4 @@ The body will require {“firstname”: “John”, “lastname”:“Doe”, �
 
 
 I used Node.js as my language and used express as well. 
-I connect to a mongoDB inorder to hold the information given by the user. 
+I connect to a mongoDB inorder to hold the information given by the user. I ended up using ubuntu to host AWS EC2. 
