@@ -1,3 +1,11 @@
+/*
+Taylor Schmautz, March 20th 2017.
+Headers
+Name=Content-Type
+Value=application/json
+*/
+
+//dependencies
 var express = require('express');
 var app = express();
 var bodyParser= require('body-parser');
@@ -11,12 +19,15 @@ People = require('./models/people');
 mongoose.connect('mongodb://localhost/people_info');
 var db = mongoose.connection;
 
+//home page
 app.get('/',function(req, res){
-    res.send('Please use /api/...');
+    res.send('Hello, you can use get and post api calls.\n Use /api/people for the calls.');
 });
 
-app.get('/api/getpeople', function(req,res){
+//get 
+app.get('/api/people', function(req,res){
     People.getPeople(function(err, people){
+        console.log("Get called");
         if(err){
             throw err;
         }
@@ -24,17 +35,16 @@ app.get('/api/getpeople', function(req,res){
     });
 });
 
+//post
 app.post('/api/people',function(req, res){
     var people = req.body;
     var count = Object.keys(people).length;
-    //console.log(count);
     if(((people['firstname']==null)||(people['lastname']==null)||(people['phone']==null)) || (count!=3)){
          console.log("Invalid Post");
          res.statusCode = ("400");
          res.send('"error": "Invalid payload. Not a person"');
     }
     else{
-       // var count = Object.keys(people).length;
         console.log("Valid Post");
         People.addPeople(people, function(err, people){
             if(err){
@@ -46,5 +56,6 @@ app.post('/api/people',function(req, res){
     }
 });
 
-app.listen(3500);
-console.log('running on port 3500');
+var port = 9000;
+app.listen(port);
+console.log('running on port 80');
