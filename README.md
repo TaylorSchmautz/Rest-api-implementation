@@ -3,7 +3,7 @@ HTTP rest get and post api implementation.
 
 http://ec2-54-202-113-75.us-west-2.compute.amazonaws.com/ is the main page. 
 
-To do a get or post api call use http://ec2-54-202-113-75.us-west-2.compute.amazonaws.com/api/people 
+To do a get or post api call use http://ec2-54-202-113-75.us-west-2.compute.amazonaws.com/api/people (I wasn't a hundred 100% about is that if the api calls should link to different pages or the same page.)
 
 -Get will require no additional informaton from the user. 
 
